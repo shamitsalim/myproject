@@ -20,3 +20,4 @@ class RecipeScraper(scrapy.Spider):
 		chef_url=cheff.xpath('@href').extract_first()
 		ingredients=response.css('.recipe-ingredients__list-item::text,.recipe-ingredients__link::text').extract()
 		enc=enc.join(ingredients)
+		method=response.css('p.recipe-method__list-item-text::text').extract()
