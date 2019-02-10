@@ -15,3 +15,6 @@ class RecipeScraper(scrapy.Spider):
 		prep_time=response.css('p.recipe-metadata__prep-time::text').extract_first()
 		cook_time=response.css('p.recipe-metadata__cook-time::text').extract_first()
 		serves=response.css('p.recipe-metadata__serving::text').extract_first()
+		cheff=response.css('div.chef__name a')
+		chef=cheff. xpath("//a[@class='chef__link'] /text()").extract_first()
+		chef_url=cheff.xpath('@href').extract_first()
