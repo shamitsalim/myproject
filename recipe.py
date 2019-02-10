@@ -25,3 +25,19 @@ class RecipeScraper(scrapy.Spider):
 		prog=response.css('div.chef__programme-name a')
 		programme=prog.css('.chef__link::text').extract()
 		programme_url=prog.xpath('@href').extract()
+		items['name']=index
+		items['images']=image
+		items['preparation_time']=prep_time
+		items['cooking_time']=cook_time
+		items['serves']=serves
+		items['chef_name']=chef
+		items['chef_url']=chef_url
+		items['chef_imagge']=chef_imagge
+		items['ingredients']=enc
+		items['methods']=method
+		items['description']=description
+		items['programme_name']=programme
+		items['programme_url']=programme_url
+		
+		yield items
+		
