@@ -14,3 +14,4 @@ class RecipeScraper(scrapy.Spider):
 		image=response.css('img.recipe-media__image'). xpath('@src').extract()
 		prep_time=response.css('p.recipe-metadata__prep-time::text').extract_first()
 		cook_time=response.css('p.recipe-metadata__cook-time::text').extract_first()
+		serves=response.css('p.recipe-metadata__serving::text').extract_first()
