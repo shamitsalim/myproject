@@ -18,3 +18,5 @@ class RecipeScraper(scrapy.Spider):
 		cheff=response.css('div.chef__name a')
 		chef=cheff. xpath("//a[@class='chef__link'] /text()").extract_first()
 		chef_url=cheff.xpath('@href').extract_first()
+		ingredients=response.css('.recipe-ingredients__list-item::text,.recipe-ingredients__link::text').extract()
+		enc=enc.join(ingredients)
