@@ -21,3 +21,4 @@ class RecipeScraper(scrapy.Spider):
 		ingredients=response.css('.recipe-ingredients__list-item::text,.recipe-ingredients__link::text').extract()
 		enc=enc.join(ingredients)
 		method=response.css('p.recipe-method__list-item-text::text').extract()
+		description=response.css('p.recipe-description__text::text').extract()
