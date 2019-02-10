@@ -13,3 +13,4 @@ class RecipeScraper(scrapy.Spider):
 		index=response.css('h1.gel-trafalgar.content-title__text::text').extract_first()
 		image=response.css('img.recipe-media__image'). xpath('@src').extract()
 		prep_time=response.css('p.recipe-metadata__prep-time::text').extract_first()
+		cook_time=response.css('p.recipe-metadata__cook-time::text').extract_first()
