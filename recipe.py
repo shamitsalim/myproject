@@ -23,8 +23,8 @@ class RecipeScraper(scrapy.Spider):
 		method=response.css('p.recipe-method__list-item-text::text').extract()
 		description=response.css('p.recipe-description__text::text').extract()
 		prog=response.css('div.chef__programme-name a')
-		programme=prog.css('.chef__link::text').extract()
-		programme_url=prog.xpath('@href').extract()
+		programme=prog.css('.chef__link::text').extract_first()
+		programme_url=prog.xpath('@href').extract_first()
 		items['name']=index
 		items['images']=image
 		items['preparation_time']=prep_time
